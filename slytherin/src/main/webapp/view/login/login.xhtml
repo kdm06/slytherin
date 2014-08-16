@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=windows-1252" />
+	<title><ui:insert name="title">Login | iS!gaw</ui:insert></title>
+</h:head>
+
+<h:form id="loginForm">
+	<p:messages id="rightSignInMessages" showDetail="true"
+		autoUpdate="true" closable="true" />
+	<p:panelGrid>
+		<p:row>
+			<p:column>
+				<p:inputText placeholder="Username" value="#{LoginBean.userName}"
+					id="username" required="true" requiredMessage="Username required."
+					styleClass="loginInput" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:password placeholder="Password" value="#{LoginBean.password}"
+					id="password" required="true" requiredMessage="Password required."
+					styleClass="loginInput" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:commandButton value="Log in" action="#{LoginBean.processLogin}"
+					styleClass="loginButton" />
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+</h:form>
+</html>

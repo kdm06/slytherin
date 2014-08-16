@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=windows-1252" />
+	<title><ui:insert name="title">iS!gaw</ui:insert></title>
+</h:head>
+
+<h:form id="homeForm">
+	<h1>iSigaw</h1><br/>
+	<p:commandButton value="Sign In" action="#{LoginBean.goToLogin()}" styleClass="loginButton" />
+	<p:commandButton value="Sign Up" action="#{RegistrationBean.goToRegister()}" styleClass="registerButton" />
+</h:form>
+
+</html>

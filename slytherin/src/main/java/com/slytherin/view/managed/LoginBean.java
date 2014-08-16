@@ -52,7 +52,7 @@ public class LoginBean implements Serializable {
 		sigawFacade = new SigawFacadeRest();
 		member = sigawFacade.getMemberDetails(userName);
 		
-		if(Misc.isNotEmpty(member) && Misc.ifNotEmpty(member.getPassword())){
+		if(Misc.isNotEmpty(member) && member.getPassword().equals(this.password)){
 			context.getExternalContext().getSessionMap().put(AUTH_KEY, member);
 			context.getExternalContext().getSessionMap().put("userName", member.getUserName());
 			msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "User: " + member.getUserName() + "succesfully logged in.", "Success");

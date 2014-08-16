@@ -4,19 +4,19 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import com.slytherin.entity.Crime;
+import com.slytherin.entity.CrimeEvent;
 import com.slytherin.rest.SigawFacadeRest;
 
 public class CrimeBean {
 
-	private List<Crime> crimes;
+	private List<CrimeEvent> crimes;
 	private SigawFacadeRest sigawFacade;
 	
-	public List<Crime> getCrimes() {
+	public List<CrimeEvent> getCrimes() {
 		return crimes;
 	}
 
-	public void setCrimes(List<Crime> crimes) {
+	public void setCrimes(List<CrimeEvent> crimes) {
 		this.crimes = crimes;
 	}
 	

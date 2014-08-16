@@ -55,7 +55,7 @@ public class RegistrationBean implements Serializable {
 	
 	public String createMemberAccount(){
 		String forward = null;
-		FacesMessage msg = null;
+		FacesMessage	 msg = null;
 		FacesContext context = FacesContext.getCurrentInstance();
 		RequestContext rcontext = RequestContext.getCurrentInstance(); 
 		boolean memberCreated = false;
@@ -65,16 +65,21 @@ public class RegistrationBean implements Serializable {
 			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Username already exists", "Duplicate User Name");
 			context.addMessage("registrationCreateNewMessages", msg);
 		} else if(Misc.ifNotEmpty(memberToAdd.getPassword()) && memberToAdd.getPassword().equals(newMemberReenterPassword)){
-			memberToAdd.setMemberRole(RestClientConstants.MEMBER_REGISTERED);
+			memberToAdd.setUserRole(RestClientConstants.MEMBER_REGISTERED);
 			memberToAdd.setUserType(RestClientConstants.TYPE_CITIZEN);
-			memberToAdd.setStatus(RestClientConstants.YES);
-			sigawFacade.registerMember(memberToAdd);
-			memberCreated = true;
+			memberToAdd.setStatus(RestClientConstants.MEMBER_ENABLED);
+			memberCreated = sigawFacade.registerMember(memberToAdd);
+			
+			if(memberCreated){
+				forward = "welcome";
+			} else {
+				msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Password should have at least 8 chars. It should also consist of an upper case, digits, punctuation, and special characters.", "");
+				context.addMessage("registrationCreateNewMessages", msg);
+			}
 			
 			//reset values
 			memberToAdd = new Identity();
 			newMemberReenterPassword = null;
-			forward = "welcome";
 		} else{
 			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Passwords do not Match.", " Incorrect Password");
 			context.addMessage("registrationCreateNewMessages", msg);

@@ -11,6 +11,19 @@ public class AddressDTO {
     private String zip;
     @Pattern(regexp="USER_LOCATION|CRIME_LOCATION", message="Address type value can only be 'USER_LOCATION' or 'CRIME_LOCATION'.")
     private String addressType;
+    
+    public AddressDTO() {
+    }
+ 
+    public AddressDTO(final String sa1, final String sa2, final String city,
+            final String state, final String zip, String addressType) {
+        setStreetAddress1(sa1);
+        setStreetAddress2(sa2);
+        setCity(city);
+        setState(state);
+        setZip(zip);
+        setAddressType(addressType);
+    }
     public String getId() {
         return id;
     }

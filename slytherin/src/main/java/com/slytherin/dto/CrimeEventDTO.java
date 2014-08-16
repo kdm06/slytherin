@@ -2,11 +2,16 @@ package com.slytherin.dto;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class CrimeEventDTO {
     
     private String id;
     private String crimeType;
+    
+    @NotBlank(message="No title provided")
     private String title;
+    
     private String details;
     private Date reportDate;
     private AddressDTO crimeLocation;

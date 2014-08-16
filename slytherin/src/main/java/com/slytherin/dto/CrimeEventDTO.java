@@ -11,6 +11,8 @@ public class CrimeEventDTO {
     private Date reportDate;
     private AddressDTO crimeLocation;
     private AddressDTO userLocation;
+    private int reliabilityScore;
+    private String reliabilityLevel;
     
     public String getId() {
         return id;
@@ -54,7 +56,17 @@ public class CrimeEventDTO {
     public void setUserLocation(AddressDTO userLocation) {
         this.userLocation = userLocation;
     }
-    
-    
+    public int getReliabilityScore() {
+        return reliabilityScore;
+    }
+    public void setReliabilityScore(int reliabilityScore) {
+        this.reliabilityScore = reliabilityScore;
+    }
+    public String getReliabilityLevel() {
+        return reliabilityLevel;
+    }
+    public void setReliabilityLevel(String reliabilityLevel) {
+        this.reliabilityLevel = reliabilityLevel;
+    }
     
 }

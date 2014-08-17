@@ -19,6 +19,7 @@ public class CrimeEventDTO {
     private int reliabilityScore;
     private String reliabilityLevel;
     private String userId;
+    private UserDTO userDTO;
     private String reportDateString;
     
     public String getId() {
@@ -86,5 +87,12 @@ public class CrimeEventDTO {
     }
     public void setReportDateString(String reportDateString) {
         this.reportDateString = reportDateString;
-    }    
+    }
+    public UserDTO getUserDTO() {
+        return userDTO;
+    }
+    public void setUserDTO(UserDTO userDTO) {
+        this.userDTO = userDTO;
+    }
+    
 }

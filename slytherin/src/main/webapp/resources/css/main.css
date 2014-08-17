@@ -388,6 +388,44 @@ textarea[contenteditable] {
 }
 
 /*primefaces*/
+.registerButton.registerButton.registerButton {
+	background: #1bcdd9;
+	color: #fff;
+	border: 0;
+	border-radius: 0;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
+	margin-right: 5px;
+}
+
+.register1Button.register1Button.register1Button {
+	background: #e8562d;
+	color: #fff;
+	border: 0;
+	border-radius: 0;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
+	margin-right: 5px;
+}
+
+.back-to-dashboard {
+	background: url('../../images/left-arrow.svg') left center no-repeat;
+	background-size: 25px;
+	padding: 10px 10px 10px 25px;
+	display: inline-block;
+	position: absolute;
+	top: 60px;
+	left: 10px;
+}
+
+.back-to-dashboard a {
+	color: #50be11 !important;
+	text-decoration: none;
+	font-size: .8em;
+}
+
 body {
 	background: #0a1b22;
 }
@@ -435,6 +473,7 @@ th.ui-state-default.ui-state-default.ui-state-default {
 	color: #fff;
 	border: 1px solid #051015;
 	font-family: 'robotolight';
+	font-size: .8em;
 }
 
 .ui-datatable-even.ui-datatable-even.ui-datatable-even td a {
@@ -446,6 +485,7 @@ th.ui-state-default.ui-state-default.ui-state-default {
 	color: #fff;
 	border: 1px solid #051015;
 	font-family: 'robotolight';
+	font-size: .8em;
 }
 
 .ui-datatable-odd.ui-datatable-odd.ui-datatable-odd td a {
@@ -455,11 +495,37 @@ th.ui-state-default.ui-state-default.ui-state-default {
 .ui-panelgrid.ui-panelgrid.ui-panelgrid tr td {
 	border: 1px solid #051015;
 	background: #063b4f;
-	color:#fff;
+	color: #fff;
+	font-size: .8em;
 }
 
 .ui-panelgrid.ui-panelgrid.ui-panelgrid tr td:first-child {
 	background: #50be11;
 	color: #fff;
 	font-family: 'robotoregular';
+	font-size: .8em;
+}
+
+.ui-paginator.ui-paginator.ui-paginator {
+	background: #051015;
+	color: #fff;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
+}
+
+.ui-paginator.ui-paginator.ui-paginator .ui-state-active {
+	background: #50be11;
+	color: #fff;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
+}
+
+.ui-paginator.ui-paginator.ui-paginator .ui-state-active {
+	background: #063b4f;
+	color: #12526a;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
 }

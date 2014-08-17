@@ -36,7 +36,9 @@
 		<p:row>
 			<p:column>
 				<p:commandButton value="Log in" action="#{LoginBean.processLogin}"
-					styleClass="loginButton" />
+					styleClass="registerButton" />
+				<p:commandButton value="Back"
+					action="#{CrimeBean.goToHomepage()}" styleClass="register1Button" />
 			</p:column>
 		</p:row>
 	</h:panelGrid>

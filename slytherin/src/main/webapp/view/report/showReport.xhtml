@@ -12,7 +12,11 @@
 	<link rel="stylesheet" href="resources/css/main.css" />
 	<link rel="stylesheet" href="resources/css/normalize.css" />
 </h:head>
+
 <h:body>
+	<div class="back-to-dashboard">
+		<a href="http://localhost/slytherin/welcome">Back to Dashboard</a>
+	</div>
 	<nav class="clearfix">
 		<a href="#" class="logo"><p:graphicImage
 				value="/images/iSigaw.svg" /></a> <span class="page-title">Crimes
@@ -20,16 +24,12 @@
 		<div class="controls">
 			<select id="filter-month">
 				<option value="AUGUST">AUGUST, 2014</option>
-				<option value="JULY">JULY, 2014</option>
-				<option value="JUNE">JUNE, 2014</option>
 			</select> <select id="filter-city">
 				<option value="null">-- CITY --</option>
 				<option>MAKATI</option>
-				<option>MANDALUYONG</option>
 			</select> <select id="filter-crime">
 				<option value="null">-- CRIME --</option>
 				<option>PROSTITUTION</option>
-				<option>THEFT</option>
 			</select>
 			<button id="filter" class="btn primary">Filter</button>
 		</div>
@@ -38,7 +38,7 @@
 
 		<div class="stage clarfix">
 			<div class="panel display-all clearfix active">
-				<h1>All Crimes Thoughout Metro Manila</h1>
+				<h1>All Crimes Throughout Metro Manila</h1>
 				<div id="chart-crime-month-legend" class="legends">
 					<ul>
 					</ul>
@@ -50,21 +50,21 @@
 
 
 			<div class="panel clearfix display-city-crimes">
-				<h1>All Crimes in %City%</h1>
+				<h1>All Crimes in Makati City</h1>
 				<div id="chart-city-crimes-container " class="chart-container">
 					<canvas id="chart-city-crimes" width="500px" height="500px"></canvas>
 				</div>
 			</div>
 
 			<div class="panel clearfix display-crimes-cities">
-				<h1>%Crime% in All Cities</h1>
+				<h1>Prostitution in All Cities</h1>
 				<div id="chart-crimes-container" class="chart-container">
 					<canvas id="chart-crimes" width="500px" height="500px"></canvas>
 				</div>
 			</div>
 
 			<div class="panel clearfix display-total-crime text-center ">
-				<h1>Total Number of %Crime% in %City%</h1>
+				<h1>Total Number of Prostitution in Makati City</h1>
 				<div class="number-box">
 					<div class="number-of-crime">121412</div>
 					<div class="number-of-crime-label">Murder</div>

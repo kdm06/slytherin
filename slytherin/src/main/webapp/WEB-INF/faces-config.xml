@@ -4,6 +4,11 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
 	<!-- CONVERTERS END OF INVENTORY Page CONVERTERS -->
 	<managed-bean>
+		<managed-bean-name>currentDate</managed-bean-name>
+		<managed-bean-class>java.util.Date</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
 		<managed-bean-name>LoginBean</managed-bean-name>
 		<managed-bean-class>com.slytherin.view.managed.LoginBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
@@ -17,6 +22,11 @@
 		<managed-bean-name>RegistrationBean</managed-bean-name>
 		<managed-bean-class>com.slytherin.view.managed.RegistrationBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>ReportBean</managed-bean-name>
+		<managed-bean-class>com.slytherin.view.managed.ReportBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
 		<from-view-id>*</from-view-id>

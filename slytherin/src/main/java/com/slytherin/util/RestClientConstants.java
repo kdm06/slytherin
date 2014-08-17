@@ -7,6 +7,7 @@ public class RestClientConstants {
 	public static final String CREATE_CRIME = "slytherin-isigaw/crime";
 	public static final String GET_LIST_CRIMES = "slytherin-isigaw/crime/load";
 	public static final String GET_CRIME_BY_ID = "slytherin-isigaw/crime/";
+	public static final String REPORT_MONTH_TYPE = "slytherin-isigaw/crime/report/";
 	
 	//User Type
 	public static final String TYPE_CITIZEN = "CITIZEN";

@@ -6,48 +6,36 @@ jQuery(function($){
     }
     
     resize();*/
-    
+    var host = "http://192.168.1.101:8080/";
     Chart.defaults.global.scaleFontColor =  "#fff";
     Chart.defaults.global.responsive = true;
     
     var monthCrime = document.getElementById("chart-crime-month").getContext("2d");
-   
-    var monthCrimeData = [
+    var monthCrimeDataColors = [
     {
-        value: 150,
         color:"#9d1bd9",
-        highlight: "#a726e3",
-        label: "PROSTITUTION"
+        highlight: "#a726e3"
     },
     {
-        value: 175,
         color: "#d91bce",
-        highlight: "#e527da",
-        label: "THEFT"
+        highlight: "#e527da"
     },
     {
-        value: 100,
         color: "#d91b55",
-        highlight: "#e62963",
-        label: "MURDER"
+        highlight: "#e62963"
     },
     {
-        value: 40,
         color: "#ec2025",
-        highlight: "#f42a2f",
-        label: "KIDNAPPING"
+        highlight: "#f42a2f"
     },
     {
-        value: 125,
+
         color: "#206dec",
-        highlight: "#2b78f5",
-        label: "ARSON"
+        highlight: "#2b78f5"
     },
     {
-        value: 10,
         color: "#206dec",
-        highlight: "#2b78f5",
-        label: "RAPE"
+        highlight: "#2b78f5"
     },
         {
         value: 70,
@@ -56,41 +44,25 @@ jQuery(function($){
         label: "PARRICIDE"
     },
         {
-        value: 80,
         color: "#206dec",
-        highlight: "#2b78f5",
-        label: "MARRICIDE"
+        highlight: "#2b78f5"
     },
         {
-        value: 45,
         color: "#50ec20",
-        highlight: "#58f029",
-        label: "HOMICIDE"
+        highlight: "#58f029"
     },
         {
-        value: 90,
         color: "#eca720",
-        highlight: "#f4b02c",
-        label: "SUICIDE"
+        highlight: "#f4b02c"
     }
     ];
- 
-    var monthCrimeGraph = new Chart(monthCrime).PolarArea(monthCrimeData, {
-        scaleBackdropColor : "#50be11",
-        segmentShowStroke  : false,
-        scaleLineColor:"#051015"
-    });
-    
-    $.each(monthCrimeData,function(key,val){
-        $("#chart-crime-month-legend ul").append("<li><span style='background:"+val.color+"'></span>"+val.label+"</li>");
-    });
     
     
     /**CITY**/
     var cityCrime = document.getElementById("chart-city-crimes").getContext("2d");
     
     var cityCrimeData = {
-    labels: ["PROSTITUTION", "THEFT", "MURDER", "KIDNAPPING", "ARSON", "RAPE", "PARRICIDE","MARRICIDE","HOMICIDE","SUICIDE"],
+    labels: ["PROSTITUTION", "THEFT", "MURDER", "KIDNAPPING", "ARSON", "RAPE", "PATRICIDE","MATRICIDE","HOMICIDE","SUICIDE"],
     datasets: [
         {
             label: "My First dataset",
@@ -155,4 +127,31 @@ jQuery(function($){
         }
     });    
     /**endof CRIME**/
+    loadDataAll();
+    
+    function loadDataAll(){
+        var monthCrimeData = [];
+       
+        $.getJSON( host+ "slytherin-isigaw/crime/report/8/2014", function(data){
+            console.log(data);
+            var counter = 0;
+            $.each(data,function(key,val){
+                monthCrimeData.push({value: val.totalEvents,
+                        color:monthCrimeDataColors[counter].color,
+                        highlight: monthCrimeDataColors[counter].highlight,
+                        label: val.crimeType});
+                counter++;
+            });
+            
+             var monthCrimeGraph = new Chart(monthCrime).PolarArea(monthCrimeData, {
+                    scaleBackdropColor : "#50be11",
+                    segmentShowStroke  : false,
+                    scaleLineColor:"#051015"
+                });
+
+                $.each(monthCrimeData,function(key,val){
+                    $("#chart-crime-month-legend ul").append("<li><span style='background:"+val.color+"'></span>"+val.label+"</li>");
+                });
+        });
+    }
 });

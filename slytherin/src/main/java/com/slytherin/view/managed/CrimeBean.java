@@ -88,6 +88,10 @@ public class CrimeBean {
 		return "welcome";
 	}
 	
+	public String goToHomepage(){
+		return "home";
+	}
+	
 	public String createReport(String userId){
 		String forward = null;
 		FacesMessage msg = null;

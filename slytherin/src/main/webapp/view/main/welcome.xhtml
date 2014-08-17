@@ -20,7 +20,7 @@
 			<p:outputLabel value="User Type: #{member.userType}" />
 		</h:panelGrid>
 
-		<p:commandButton value="Reports" action="#{CrimeBean.goToReports}"
+		<p:commandButton value="Reports" action="#{CrimeBean.goToReports()}"
 			styleClass="reportsButton" />
 		<p:commandButton value="Create Crime" action="#{CrimeBean.goToCreate}"
 			styleClass="reportsButton" />
@@ -31,7 +31,7 @@
 </h:form>
 
 <h:form id="crimeForm">
-	<p:dataTable var="crimes" value="#{CrimeBean.crimes}">
+	<p:dataTable var="crimes" value="#{CrimeBean.crimes}" rows="10" paginator="true">
 		<p:column headerText="Id">
 			<p:commandLink value="#{crimes.id}"
 				action="#{CrimeBean.getCrime(crimes.id)}" styleClass="createButton" />

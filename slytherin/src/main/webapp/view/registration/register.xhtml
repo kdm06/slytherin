@@ -59,7 +59,10 @@
 			<p:column>
 				<p:commandButton value="Register"
 					action="#{RegistrationBean.createMemberAccount}"
-					styleClass="loginButton" />
+					styleClass="registerButton" />
+				<p:commandButton value="Back"
+					action="#{CrimeBean.goToHomepage()}"
+					styleClass="register1Button" />
 			</p:column>
 		</p:row>
 	</h:panelGrid>

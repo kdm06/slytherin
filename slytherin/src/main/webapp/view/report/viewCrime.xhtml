@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=windows-1252" />
+	<title><ui:insert name="title">iS!gaw</ui:insert></title>
+	<h:outputStylesheet name="/css/main.css" />
+</h:head>
+
+<h:form id="crimeForm">
+	<h:panelGrid style="margin: 0 auto;">
+		<p:graphicImage value="/images/iSigaw.svg" />
+	</h:panelGrid>
+	<p:panelGrid style="margin: 0 auto;">
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Crime Id:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.id}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Crime Type:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.crimeType}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Title:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.title}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Details:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.details}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Crime Location:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel
+					value="#{crime.crimeLocation.streetAddress1} #{crime.crimeLocation.streetAddress2} , #{crime.crimeLocation.city}, #{crime.crimeLocation.state}, #{crime.crimeLocation.zip}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="User Location:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel
+					value="#{crime.userLocation.streetAddress1} #{crime.userLocation.streetAddress2} , #{crime.userLocation.city}, #{crime.userLocation.state}, #{crime.userLocation.zip}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Realibility Level:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.reliabilityLevel}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Realibility Score:" />
+			</p:column>
+			<p:column>
+				<p:outputLabel value="#{crime.reliabilityScore}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column />
+			<p:column>
+				<p:commandButton value="Back" action="#{CrimeBean.goToHome}"
+					styleClass="loginButton" process="@this" />
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+</h:form>
+</html>

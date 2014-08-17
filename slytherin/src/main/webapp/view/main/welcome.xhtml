@@ -9,28 +9,45 @@
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=windows-1252" />
 	<title><ui:insert name="title">Homepage | iS!gaw</ui:insert></title>
+	<h:outputStylesheet name="/css/main.css" />
 </h:head>
 
-<h:form id="welcomeForm">
-	<p:commandButton rendered="#{not empty LoginBean.member}" value="Reports" action="#{LoginBean.processLogout}" styleClass="reportsButton" />
-	<p:commandButton rendered="#{not empty LoginBean.member}" value="Log Out" action="#{LoginBean.processLogout}" styleClass="loginButton" />
-	<br/>
+<h:form id="detailsForm" rendered="#{not empty LoginBean.member}">
+	<div class="userDetails">
+		<h:panelGrid>
+			<p:graphicImage value="/images/iSigaw.svg" />
+			<p:outputLabel value="Name: #{member.firstName} #{member.lastName}" />
+			<p:outputLabel value="User Type: #{member.userType}" />
+		</h:panelGrid>
 
+		<p:commandButton value="Reports" action="#{CrimeBean.goToReports}"
+			styleClass="reportsButton" />
+		<p:commandButton value="Create Crime" action="#{CrimeBean.goToCreate}"
+			styleClass="reportsButton" />
+		<p:commandButton value="Log Out" action="#{LoginBean.processLogout}"
+			styleClass="loginButton" />
+		<br />
+	</div>
+</h:form>
+
+<h:form id="crimeForm">
 	<p:dataTable var="crimes" value="#{CrimeBean.crimes}">
 		<p:column headerText="Id">
-			<h:outputText value="#{crime.crimeId}" />
+			<p:commandLink value="#{crimes.id}"
+				action="#{CrimeBean.getCrime(crimes.id)}" styleClass="createButton" />
+		</p:column>
+
+		<p:column headerText="Type" sortBy="#{crimes.crimeType}">
+			<h:outputText value="#{crimes.crimeType}" />
 		</p:column>
 
 		<p:column headerText="Title">
-			<h:outputText value="#{crime.title}" />
+			<h:outputText value="#{crimes.title}" />
 		</p:column>
 
-		<p:column headerText="Reporter">
-			<h:outputText value="#{crime.reporter}" />
-		</p:column>
-
-		<p:column headerText="Report">
-			<h:outputText value="#{crime.report}" />
+		<p:column headerText="Crime Location">
+			<h:outputText
+				value="#{crimes.crimeLocation.streetAddress1} #{crimes.crimeLocation.streetAddress2} #{crimes.crimeLocation.city} #{crimes.crimeLocation.state} #{crimes.crimeLocation.zip}" />
 		</p:column>
 	</p:dataTable>
 </h:form>

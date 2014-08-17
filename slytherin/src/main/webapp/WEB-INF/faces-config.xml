@@ -2,39 +2,22 @@
 <faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
-
-	<!-- CONVERTERS -->
-	<!-- END OF INVENTORY Page CONVERTERS -->
-
+	<!-- CONVERTERS END OF INVENTORY Page CONVERTERS -->
 	<managed-bean>
 		<managed-bean-name>LoginBean</managed-bean-name>
 		<managed-bean-class>com.slytherin.view.managed.LoginBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-	
 	<managed-bean>
 		<managed-bean-name>CrimeBean</managed-bean-name>
 		<managed-bean-class>com.slytherin.view.managed.CrimeBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	
 	<managed-bean>
 		<managed-bean-name>RegistrationBean</managed-bean-name>
 		<managed-bean-class>com.slytherin.view.managed.RegistrationBean</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
-
-	<application>
-		<resource-bundle>
-			<base-name>com.bookworm.messages</base-name>
-			<var>msg</var>
-		</resource-bundle>
-		
-        <action-listener>org.primefaces.application.DialogActionListener</action-listener>
-        <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
-        <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
-	</application>
-	
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -42,30 +25,47 @@
 			<to-view-id>/view/main/home.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-		
 		<navigation-case>
 			<from-outcome>welcome</from-outcome>
 			<to-view-id>/view/main/welcome.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-		
 		<navigation-case>
 			<from-outcome>login</from-outcome>
 			<to-view-id>/view/login/login.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-		
 		<navigation-case>
 			<from-outcome>registration</from-outcome>
 			<to-view-id>/view/registration/register.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>reports</from-outcome>
+			<to-view-id>/view/report/showReport.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>createCrime</from-outcome>
+			<to-view-id>/view/report/createCrime.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>viewCrime</from-outcome>
+			<to-view-id>/view/report/viewCrime.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 	</navigation-rule>
-	
-	<!-- CONVERTERS -->
-<!-- 	<converter> -->
-<!-- 	    <converter-for-class>com.kodeprime.paorder.entity.ProductCategory</converter-for-class> -->
-<!-- 		<converter-class>com.kodeprime.paorder.converter.ProductCategoryConverter</converter-class> -->
-<!--  	 </converter> -->
-	<!-- END OF CONVERTERS -->
+	<application>
+		<action-listener>org.primefaces.application.DialogActionListener</action-listener>
+		<navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+		<view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+		<resource-bundle>
+			<base-name>com.bookworm.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+	</application>
+	<!-- CONVERTERS <converter> <converter-for-class>com.kodeprime.paorder.entity.ProductCategory</converter-for-class> 
+		<converter-class>com.kodeprime.paorder.converter.ProductCategoryConverter</converter-class> 
+		</converter> END OF CONVERTERS -->
 </faces-config>

@@ -9,12 +9,26 @@
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=windows-1252" />
 	<title><ui:insert name="title">iS!gaw</ui:insert></title>
+	<h:outputStylesheet name="/css/main.css" />
 </h:head>
 
 <h:form id="homeForm">
-	<h1>iSigaw</h1><br/>
-	<p:commandButton value="Sign In" action="#{LoginBean.goToLogin()}" styleClass="loginButton" />
-	<p:commandButton value="Sign Up" action="#{RegistrationBean.goToRegister()}" styleClass="registerButton" />
+	<h:panelGrid style="margin: 0 auto;">
+		<p:row>
+			<p:column>
+				<p:graphicImage value="/images/iSigaw.svg" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:commandButton style="margin: 0 auto;" value="Sign In"
+					action="#{LoginBean.goToLogin()}" styleClass="loginButton" />
+				<p:commandButton style="margin: 0 auto;" value="Sign Up"
+					action="#{RegistrationBean.goToRegister()}"
+					styleClass="reportsButton" />
+			</p:column>
+		</p:row>
+	</h:panelGrid>
 </h:form>
 
 </html>

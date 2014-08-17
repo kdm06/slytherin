@@ -18,6 +18,7 @@ public class RegistrationBean implements Serializable {
 
 	public static final long serialVersionUID = 99282617118L;
 	
+	public static final String AUTH_KEY = "slytherin";
 	SigawFacadeRest sigawFacade;
 	private List<Identity> membersList = new ArrayList<Identity>();
 	private Identity memberToAdd;
@@ -71,6 +72,8 @@ public class RegistrationBean implements Serializable {
 			memberCreated = sigawFacade.registerMember(memberToAdd);
 			
 			if(memberCreated){
+				context.getExternalContext().getSessionMap().put(AUTH_KEY, memberToAdd);
+				context.getExternalContext().getSessionMap().put("member", memberToAdd);
 				forward = "welcome";
 			} else {
 				msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Password should have at least 8 chars. It should also consist of an upper case, digits, punctuation, and special characters.", "");
@@ -81,7 +84,7 @@ public class RegistrationBean implements Serializable {
 			memberToAdd = new Identity();
 			newMemberReenterPassword = null;
 		} else{
-			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Passwords do not Match.", " Incorrect Password");
+			msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Passwords do not match.", "");
 			context.addMessage("registrationCreateNewMessages", msg);
 		}
 		

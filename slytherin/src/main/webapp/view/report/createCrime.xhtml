@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type"
+		content="text/html; charset=windows-1252" />
+	<title><ui:insert name="title">Create Crime | iS!gaw</ui:insert></title>
+	<h:outputStylesheet name="/css/main.css" />
+</h:head>
+
+<h:form id="createCrimeForm">
+	<p:messages id="createCrimeMessages" showDetail="true"
+		autoUpdate="true" closable="true" />
+	<h:panelGrid style="margin: 0 auto;">
+		<p:graphicImage value="/images/iSigaw.svg" />
+		<p:outputLabel value="Create Crime" />
+	</h:panelGrid>
+
+	<p:panelGrid style="margin: 0 auto;">
+		<p:row>
+			<p:column>
+				<p:outputLabel value="User Id:" />
+			</p:column>
+			<p:column>
+				<p:inputText id="userId" value="#{LoginBean.member.id}"
+					required="true" requiredMessage="Title is required." />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Date" />
+			</p:column>
+			<p:column>
+				<h:outputText value="#{currentDate}">
+					<f:convertDateTime pattern="MMM/dd/yyyy" type="date" />
+				</h:outputText>
+				<h:inputHidden name="date" value="#{currentDate}" />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Crime Type" />
+			</p:column>
+			<p:column>
+				<p:selectOneMenu id="createCrimeCategory" name="type"
+					value="#{CrimeBean.crimeToAdd.crimeType}" style="width:350px">
+					<f:selectItem itemLabel="Select crime type" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItems value="#{CrimeBean.crimeCategories}" />
+				</p:selectOneMenu>
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Title" />
+			</p:column>
+			<p:column>
+				<p:inputText placeholder="Title" id="crimeTitle"
+					value="#{CrimeBean.crimeToAdd.title}" required="true"
+					requiredMessage="Title is required." />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Details" />
+			</p:column>
+			<p:column>
+				<p:inputText placeholder="Details" id="crimeDetails"
+					value="#{CrimeBean.crimeToAdd.details}" required="true"
+					requiredMessage="Please input crime details." />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="Crime Location" />
+			</p:column>
+			<p:column>
+				<p:inputText placeholder="Address 1" id="crimeLocation"
+					value="#{CrimeBean.crimeToAdd.crimeLocation.streetAddress1}"
+					required="true" requiredMessage="Crime Location is required." />
+				<p:inputText placeholder="Address 2" id="crimeLocation1"
+					value="#{CrimeBean.crimeToAdd.crimeLocation.streetAddress2}"
+					required="true" requiredMessage="Crime Location is required." />
+				<p:inputText placeholder="City" id="crimeLocation2"
+					value="#{CrimeBean.crimeToAdd.crimeLocation.city}" required="true"
+					requiredMessage="Crime Location is required." />
+				<p:inputText placeholder="State" id="crimeLocation3"
+					value="#{CrimeBean.crimeToAdd.crimeLocation.state}" required="true"
+					requiredMessage="Crime Location is required." />
+				<p:inputText placeholder="Zip" id="crimeLocation4"
+					value="#{CrimeBean.crimeToAdd.crimeLocation.zip}" required="true"
+					requiredMessage="Crime Location is required." />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column>
+				<p:outputLabel value="User Location" />
+			</p:column>
+			<p:column>
+				<p:inputText placeholder="Address 1" id="userLocation"
+					value="#{CrimeBean.crimeToAdd.userLocation.streetAddress1}"
+					required="true" requiredMessage="User location is required." />
+				<p:inputText placeholder="Address 2" id="userLocation1"
+					value="#{CrimeBean.crimeToAdd.userLocation.streetAddress2}"
+					required="true" requiredMessage="User location is required." />
+				<p:inputText placeholder="City" id="userLocation2"
+					value="#{CrimeBean.crimeToAdd.userLocation.city}" required="true"
+					requiredMessage="User location is required." />
+				<p:inputText placeholder="State" id="userLocation3"
+					value="#{CrimeBean.crimeToAdd.userLocation.state}" required="true"
+					requiredMessage="User location is required." />
+				<p:inputText placeholder="Zip" id="userLocation4"
+					value="#{CrimeBean.crimeToAdd.userLocation.zip}" required="true"
+					requiredMessage="User location is required." />
+			</p:column>
+		</p:row>
+		<p:row>
+			<p:column />
+			<p:column>
+				<p:commandButton value="Create Crime"
+					action="#{CrimeBean.createReport(LoginBean.member.id)}"
+					styleClass="loginButton" />
+				<p:commandButton value="Cancel" action="#{CrimeBean.goToHome}"
+					styleClass="reportsButton" process="@this" />
+			</p:column>
+		</p:row>
+	</p:panelGrid>
+</h:form>
+
+</html>

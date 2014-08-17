@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8" />
+	<title><ui:insert name="title">Reports | iS!gaw</ui:insert></title>
+	<script src="js/vendor/modernizr-2.7.1.min.js"></script>
+	<link rel="stylesheet" href="resources/css/main.css" />
+	<link rel="stylesheet" href="resources/css/normalize.css" />
+</h:head>
+<h:body>
+	<nav class="clearfix">
+		<a href="#" class="logo"><p:graphicImage
+				value="/images/iSigaw.svg" /></a> <span class="page-title">Crimes
+			in Metro Manila</span>
+		<div class="controls">
+			<select id="filter-month">
+				<option value="AUGUST">AUGUST, 2014</option>
+				<option value="JULY">JULY, 2014</option>
+				<option value="JUNE">JUNE, 2014</option>
+			</select> <select id="filter-city">
+				<option value="null">-- CITY --</option>
+				<option>MAKATI</option>
+				<option>MANDALUYONG</option>
+			</select> <select id="filter-crime">
+				<option value="null">-- CRIME --</option>
+				<option>PROSTITUTION</option>
+				<option>THEFT</option>
+			</select>
+			<button id="filter" class="btn primary">Filter</button>
+		</div>
+	</nav>
+	<div class="main">
+
+		<div class="stage clarfix">
+			<div class="panel display-all clearfix active">
+				<h1>All Crimes Thoughout Metro Manila</h1>
+				<div id="chart-crime-month-legend" class="legends">
+					<ul>
+					</ul>
+				</div>
+				<div id="chart-crime-month-container" class="chart-container">
+					<canvas id="chart-crime-month" width="500px" height="500px"></canvas>
+				</div>
+			</div>
+
+
+			<div class="panel clearfix display-city-crimes">
+				<h1>All Crimes in %City%</h1>
+				<div id="chart-city-crimes-container " class="chart-container">
+					<canvas id="chart-city-crimes" width="500px" height="500px"></canvas>
+				</div>
+			</div>
+
+			<div class="panel clearfix display-crimes-cities">
+				<h1>%Crime% in All Cities</h1>
+				<div id="chart-crimes-container" class="chart-container">
+					<canvas id="chart-crimes" width="500px" height="500px"></canvas>
+				</div>
+			</div>
+
+			<div class="panel clearfix display-total-crime text-center ">
+				<h1>Total Number of %Crime% in %City%</h1>
+				<div class="number-box">
+					<div class="number-of-crime">121412</div>
+					<div class="number-of-crime-label">Murder</div>
+				</div>
+				<p>COMING SOON: More granular data</p>
+			</div>
+		</div>
+
+	</div>
+	<script src="js/vendor/jquery-2.1.0.min.js"></script>
+	<script src="js/Chart.min.js"></script>
+	<script src="js/main.js"></script>
+</h:body>
+</html>

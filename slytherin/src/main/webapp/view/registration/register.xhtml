@@ -9,13 +9,16 @@
 	<meta http-equiv="Content-Type"
 		content="text/html; charset=windows-1252" />
 	<title><ui:insert name="title">Sign in | iS!gaw</ui:insert></title>
+	<h:outputStylesheet name="/css/main.css" />
 </h:head>
 
 <h:form id="registrationForm">
 	<p:messages id="registrationCreateNewMessages" showDetail="true"
 		autoUpdate="true" closable="true" />
-
-	<p:panelGrid>
+	<h:panelGrid style="margin: 0 auto;">
+		<p:graphicImage value="/images/iSigaw.svg" />
+	</h:panelGrid>
+	<h:panelGrid style="margin: 0 auto;">
 		<p:row>
 			<p:column>
 				<p:inputText placeholder="Username" id="registrationUserName"
@@ -56,9 +59,9 @@
 			<p:column>
 				<p:commandButton value="Register"
 					action="#{RegistrationBean.createMemberAccount}"
-					styleClass="registerButton" />
+					styleClass="loginButton" />
 			</p:column>
 		</p:row>
-	</p:panelGrid>
+	</h:panelGrid>
 </h:form>
 </html>

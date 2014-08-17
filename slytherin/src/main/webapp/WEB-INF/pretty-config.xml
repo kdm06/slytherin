@@ -22,4 +22,19 @@
 		<pattern value="/registration"/>
 		<view-id value="/faces/view/registration/register.xhtml" />
 	</url-mapping>
+	
+	<url-mapping>
+		<pattern value="/showReport"/>
+		<view-id value="/faces/view/report/showReport.xhtml" />
+	</url-mapping>
+	
+	<url-mapping>
+		<pattern value="/createCrime"/>
+		<view-id value="/faces/view/report/createCrime.xhtml" />
+	</url-mapping>
+	
+	<url-mapping>
+		<pattern value="/viewCrime"/>
+		<view-id value="/faces/view/report/viewCrime.xhtml" />
+	</url-mapping>
 </pretty-config>

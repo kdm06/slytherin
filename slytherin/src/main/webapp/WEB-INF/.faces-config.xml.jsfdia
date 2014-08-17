@@ -16,6 +16,15 @@
     PATH="/view/registration/register.xhtml"
     TARGET="rules:#view#registration#register.xhtml"
     TITLE="registration" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reports::#view#report#showReport.xhtml"
+    NAME="output4" PATH="/view/report/showReport.xhtml"
+    TARGET="rules:#view#report#showReport.xhtml" TITLE="reports" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="createCrime::#view#report#createCrime.xhtml"
+    NAME="output5" PATH="/view/report/createCrime.xhtml"
+    TARGET="rules:#view#report#createCrime.xhtml" TITLE="createCrime" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="viewCrime::#view#report#viewCrime.xhtml"
+    NAME="output6" PATH="/view/report/viewCrime.xhtml"
+    TARGET="rules:#view#report#viewCrime.xhtml" TITLE="viewCrime" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#view#main#home.xhtml"
@@ -26,4 +35,10 @@
   PATH="/view/login/login.xhtml" SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#view#registration#register.xhtml"
   PATH="/view/registration/register.xhtml" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#report#createCrime.xhtml"
+  PATH="/view/report/createCrime.xhtml" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#report#showReport.xhtml"
+  PATH="/view/report/showReport.xhtml" SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#view#report#viewCrime.xhtml"
+  PATH="/view/report/viewCrime.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
